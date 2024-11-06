@@ -14,7 +14,7 @@ class Dog(NameBaseModel):
     breed = models.ForeignKey(
         "Breed",
         on_delete=models.CASCADE,
-        verbose_name="Порода"
+        verbose_name="Порода",
     )
     gender = DogCharFieldAttributeField("Пол")
     color = DogCharFieldAttributeField("Окрас")
@@ -35,7 +35,7 @@ class Breed(NameBaseModel):
         choices=[
         (size.value[0], size.value[1]) for size in ModelConstants.SizeChoices
     ],
-        default=ModelConstants.SizeChoices.MEDIUM.value[0]
+        default=ModelConstants.SizeChoices.MEDIUM.value[0],
     )
     friendliness = BreedAttributeField("Дружелюбность")
     trainability = BreedAttributeField("Обучаемость")

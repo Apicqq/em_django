@@ -15,6 +15,7 @@ class BreedAttributeField(PositiveSmallIntegerField):
     Используется в модели Breed для упрощения кода и выноса повторяющихся
     значений в одно место.
     """
+
     def __init__(self, *args, **kwargs):
         kwargs["choices"] = ModelConstants.ATTRIBUTE_CHOICES
         kwargs["validators"] = [MinValueValidator(1), MaxValueValidator(5)]
@@ -35,6 +36,7 @@ class DogCharFieldAttributeField(CharField):
     Используется в модели Dog для упрощения кода и выноса повторяющихся
     значений в одно место.
     """
+
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = ModelConstants.CHARFIELD_MAX_LENGTH
         super().__init__(*args, **kwargs)
