@@ -13,6 +13,7 @@ mypy = "^1.13.0"
 ruff = "^0.7.2"
 drf-spectacular = "^0.27.2"
 django-stubs = {extras = ["compatible-mypy"], version = "^5.1.1"}
+django-debug-toolbar = "^4.4.6"
 
 
 [build-system]

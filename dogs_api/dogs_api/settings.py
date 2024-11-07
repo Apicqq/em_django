@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,6 +10,10 @@ SECRET_KEY = (
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -105,3 +110,15 @@ SPECTACULAR_SETTINGS = {
         "TrainabilityEnum": "core.constants.ModelConstants.ATTRIBUTE_CHOICES",
     },
 }
+
+TESTING = "test" in sys.argv
+
+if not TESTING:
+    INSTALLED_APPS = [
+        *INSTALLED_APPS,
+        "debug_toolbar",
+    ]
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        *MIDDLEWARE,
+    ]
