@@ -30,6 +30,8 @@ class BreedPostSerializer(ModelSerializer):
 class DogGetSerializer(ModelSerializer):
     """Сериализатор для GET-запросов модели Dog."""
 
+    breed = BreedGetSerializer(read_only=True)
+
     class Meta:
         model = Dog
         fields = (
