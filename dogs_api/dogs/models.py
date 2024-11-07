@@ -30,12 +30,18 @@ class Dog(NameBaseModel):
 class Breed(NameBaseModel):
     """Модель для хранения информации о породах собак."""
 
+    class SizeChoices(models.TextChoices):
+        """Enum для хранения размеров пород собак."""
+
+        TINY = "Tiny", "Крошечный"
+        SMALL = "Small", "Маленький"
+        MEDIUM = "Medium", "Средний"
+        LARGE = "Large", "Большой"
+
     size = models.CharField(
-        max_length=1,
-        choices=[
-        (size.value[0], size.value[1]) for size in ModelConstants.SizeChoices
-    ],
-        default=ModelConstants.SizeChoices.MEDIUM.value[0],
+        max_length=ModelConstants.SIZE_CHOICES_MAX_LENGTH,
+        choices=SizeChoices.choices,
+        default=SizeChoices.MEDIUM,
     )
     friendliness = BreedAttributeField("Дружелюбность")
     trainability = BreedAttributeField("Обучаемость")

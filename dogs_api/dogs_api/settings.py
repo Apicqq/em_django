@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core.apps.CoreConfig",
     "dogs.apps.DogsConfig",
+    "api.apps.ApiConfig",
+    "drf_spectacular",
     "rest_framework",
 ]
 
@@ -88,3 +90,16 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 10,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "SCHEMA_PATH_PREFIX": "/api/v[0-9]/",
+    "ENUM_NAME_OVERRIDES": {
+        "TrainabilityEnum": "core.constants.ModelConstants.ATTRIBUTE_CHOICES",
+    },
+}

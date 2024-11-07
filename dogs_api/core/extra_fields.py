@@ -17,6 +17,7 @@ class BreedAttributeField(PositiveSmallIntegerField):
     """
 
     def __init__(self, *args, **kwargs):
+        """Инициализация экземпляра класса."""
         kwargs["choices"] = ModelConstants.ATTRIBUTE_CHOICES
         kwargs["validators"] = [MinValueValidator(1), MaxValueValidator(5)]
         super().__init__(*args, **kwargs)
@@ -38,5 +39,6 @@ class DogCharFieldAttributeField(CharField):
     """
 
     def __init__(self, *args, **kwargs):
+        """Инициализация экземпляра класса."""
         kwargs["max_length"] = ModelConstants.CHARFIELD_MAX_LENGTH
         super().__init__(*args, **kwargs)
