@@ -5,6 +5,7 @@ from core.constants import ModelConstants
 from core.models import NameBaseModel
 from core.extra_fields import BreedAttributeField, DogCharFieldAttributeField
 
+
 class Dog(NameBaseModel):
     """Модель для хранения информации о собаках."""
 
@@ -24,7 +25,6 @@ class Dog(NameBaseModel):
     class Meta:
         verbose_name = "Собака"
         verbose_name_plural = "Собаки"
-
 
 
 class Breed(NameBaseModel):

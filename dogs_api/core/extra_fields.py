@@ -3,6 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 from core.constants import ModelConstants
 
+
 class BreedAttributeField(PositiveSmallIntegerField):
     """
     Кастомное поле, наследованное от PositiveSmallIntegerField.
@@ -24,7 +25,6 @@ class BreedAttributeField(PositiveSmallIntegerField):
         self.help_text = (
             f"{self.verbose_name}, от 1 до 5." if self.verbose_name else None
         )
-
 
 
 class DogCharFieldAttributeField(CharField):

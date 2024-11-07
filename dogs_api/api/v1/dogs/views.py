@@ -2,8 +2,12 @@ from drf_spectacular.utils import extend_schema_view, extend_schema
 from rest_framework import viewsets
 
 from dogs.models import Dog, Breed
-from api.v1.dogs.serializers import DogGetSerializer, BreedGetSerializer, \
-    BreedPostSerializer, DogPostSerializer
+from api.v1.dogs.serializers import (
+    DogGetSerializer,
+    BreedGetSerializer,
+    BreedPostSerializer,
+    DogPostSerializer,
+)
 
 
 @extend_schema_view(

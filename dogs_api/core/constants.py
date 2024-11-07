@@ -1,7 +1,6 @@
 """Constants used for the project."""
 
 
-
 class ModelConstants:
     """Константы, используемые для моделей."""
 
