@@ -16,6 +16,11 @@ django-stubs = {extras = ["compatible-mypy"], version = "^5.1.1"}
 django-debug-toolbar = "^4.4.6"
 
 
+[tool.poetry.group.testing.dependencies]
+pytest = "^8.3.3"
+pytest-django = "^4.9.0"
+mixer = "^7.2.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -116,3 +121,11 @@ plugins = ["mypy_django_plugin.main"]
 
 [tool.django-stubs]
 django_settings_module = "dogs_api.dogs_api.settings"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "dogs_api.settings"
+norecursedirs = ["env/*"]
+addopts = "-vv -p no:cacheprovider -p no:warnings"
+testpaths = "tests/"
+python_files = ["test_*.py"]
+pythonpath = "./dogs_api/"
