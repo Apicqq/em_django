@@ -22,7 +22,7 @@ class Dog(NameBaseModel):
     favorite_food = DogCharFieldAttributeField("Любимая еда")
     favorite_toy = DogCharFieldAttributeField("Любимая игрушка")
 
-    class Meta:
+    class Meta(NameBaseModel.Meta):
         verbose_name = "Собака"
         verbose_name_plural = "Собаки"
 
@@ -48,6 +48,6 @@ class Breed(NameBaseModel):
     shedding_amount = BreedAttributeField("Линючесть")
     exercise_needs = BreedAttributeField("Нужда в тренировках")
 
-    class Meta:
+    class Meta(NameBaseModel.Meta):
         verbose_name = "Порода"
         verbose_name_plural = "Породы"
