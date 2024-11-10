@@ -15,7 +15,7 @@ def breed() -> Breed:
 
 
 @pytest.fixture
-def breed_payload() -> dict[str, [str | int]]:
+def breed_payload() -> dict[str, str | int]:
     return dict(
         name="Такса",
         size="Large",
@@ -37,7 +37,7 @@ def dogs_list(breed: Breed) -> list[Dog]:
 
 
 @pytest.fixture
-def dog_payload(breed: Breed) -> dict[str, [str | int]]:
+def dog_payload(breed: Breed) -> dict[str, str | int]:
     return dict(
         name="Sobaka",
         age=5,
